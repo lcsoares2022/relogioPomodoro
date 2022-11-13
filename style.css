@@ -355,7 +355,7 @@ button:hover {
 
     .card {
         float: right;
-        margin-top: 180px;
+        margin-top: 50px;
     }
 
 
@@ -492,8 +492,12 @@ button:hover {
     }
 
     #modal {
+        position: fixed;
+        padding-top: 1px;
+        padding-bottom: 20px;
         min-width: 40vw;
         max-height: 95%;
+        z-index: 1000;
     }
 
     .modal-body .aprendiz,
