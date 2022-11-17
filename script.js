@@ -141,8 +141,6 @@ localStorage.setItem("db_usuarios", JSON.stringify(mockTest));
 
 let usuarioAtivo = JSON.parse(localStorage.getItem("db_usuarios"));
 
-console.log(usuarioAtivo);
-
 aprendiz.addEventListener("click", ()=>{
     tempoUsuario=1;                                                                                
     carregarDadosUsuario();

@@ -297,43 +297,10 @@ button:hover {
 }
 
 
-/*RODAPÉ DO SITE*/
-
-.footer {
-    position: absolute;
-    margin: 70px 10px;
+#show-text {
+    position: relative;
+    margin-left: 100px
 }
-
-
-.opcoes {
-    position: absolute;
-    padding: 15px 0px;
-    margin-left: 0px;
-}
-
-
-#pomodoro {
-    margin-left: 0px !important;
-}
-
-#shortBreak {
-    margin-left: 8px;
-}
-
-#longBreak {
-    margin-left: 8px;
-
-}
-
-
-.opcoes input {
-    width: 120px !important;
-    margin: 10px 10px !important;
-    text-align: center !important;
-}
-
-
-
 
 /*Menu Mobile - Ínicio*/
 
