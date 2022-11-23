@@ -20,16 +20,20 @@ const doutor = document.getElementById('doutor');
 let temposPomodoro = 25, temposShortBreak = 5, temposLongBreak = 10;
 
 
-let minutos = 0, segundos = 0, intervaloId, count=0, ciclo=3, totalPomodoro=0;
+let minutos = 0, segundos = 0, intervaloId, count=0, ciclo=3, totalPomodoro=0, controlador=0;
 
     
 //Função principal
 
 const startTime = () => {   
     if(segundos === 0) {
-        if(minutos === 0) {
+        if(minutos === 0 && controlador!=0) {
             clearInterval(intervaloId) /*Limpa o timer definido pelo método setinterval (desativa a função setInterval)*/
             bell.play()
+            return;
+        }
+        if(controlador==0) {
+            clearInterval(intervaloId);
             return;
         }
         
@@ -62,6 +66,7 @@ pomodoroBtn.addEventListener("click", () => {
     minutos --;  
     segundos = 60;
     count++;
+    controlador=1;
     totalPomodoro++;
     if(count > 3) {
         count=1;
@@ -74,7 +79,8 @@ shortBtn.addEventListener("click", () => {
     clearInterval(intervaloId);
     minutos = temposShortBreak,
     minutos --;  
-    segundos = 60
+    segundos = 60;
+    controlador=1;
     intervaloId = setInterval(startTime, 1000);
     
 });
@@ -84,7 +90,8 @@ longBtn.addEventListener("click", () => {
     clearInterval(intervaloId);
     minutos = temposLongBreak, 
     minutos --;
-    segundos = 60
+    segundos = 60;
+    controlador=1;
     intervaloId = setInterval(startTime, 1000);
 });
 
@@ -180,6 +187,7 @@ function carregarDadosUsuario() {
 
 function salvarDadosLocalStorage (pomodoro, shortBreak, longBreak) {
     exibirTempo.textContent = `${pomodoro}:00`;
+    controlador=0;
     localStorage.setItem('long_break', longBreak);
     localStorage.setItem('short_break', shortBreak);
     localStorage.setItem('pomodoro', pomodoro);
